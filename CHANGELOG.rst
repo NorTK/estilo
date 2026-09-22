@@ -7,6 +7,22 @@ Registro de cambios y evolución de la Guía de Estilo de Documentación para No
 El formato se basa en `Keep a Changelog <https://keepachangelog.com/es-ES/1.1.0/>`_, y este proyecto se adhiere a `Semantic Versioning <https://semver.org/lang/es/>`_.
 
 
+[Sin publicar]
+==============
+
+.. rubric:: Agregado
+
+* Documento canónico ``CONTRIBUTING.rst`` en la raíz del repositorio y enlace simbólico ``source/contributing.rst`` integrado en el árbol de navegación de Sphinx.
+* Regla formal de ciclo de vida en ``GEMINI.md`` que establece la obligatoriedad de registrar cada cambio en la Bitácora (``CHANGELOG.rst``) y evaluar de forma coordinada la actualización de ``README.rst`` y ``CONTRIBUTING.rst``.
+
+.. rubric:: Modificado
+
+* Optimización estructural de ``GEMINI.md`` para maximizar la densidad informativa, eliminar redundancias y consolidar directivas de calidad y estilo.
+* Corrección y ampliación del espaciado editorial en los títulos de grupo del menú lateral en ``source/_static/css/nortk.css`` para erradicar el amontonamiento sobre los enlaces subordinados.
+* Corrección del contraste tipográfico en encabezados de tabla (``thead th p``), asegurando texto blanco nítido sobre fondo oscuro.
+* Actualización de ``README.rst`` incorporando la sección de contribuciones y reflejando los nuevos archivos del proyecto.
+
+
 [0.1.0] - 2026-09-21
 ====================
 

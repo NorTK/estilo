@@ -22,6 +22,7 @@ Estándar de Documentación Modular, Rigor Didáctico y Soberanía Digital para 
    :caption: Control de versiones:
 
    Bitácora <changelog>
+   Cómo contribuir <contributing>
 
 Introducción
 ============

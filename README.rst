@@ -107,14 +107,23 @@ Estructura del proyecto
    estilo/
    ├── .githooks/
    │   └── pre-push                             # Hook de Git para rstcheck recursivo pre-push
+   ├── .github/
+   │   └── workflows/pages.yml                  # Flujo de GitHub Actions para GitHub Pages
+   ├── .gitignore                               # Exclusiones de control de versiones
+   ├── .gitlab-ci.yml                           # Pipeline de GitLab CI para GitLab Pages
    ├── CHANGELOG.rst                            # Historial canónico de versiones y bitácora
+   ├── CONTRIBUTING.rst                         # Directrices y normas obligatorias para contribuir
+   ├── COPYING                                  # Licencia de Documentación Libre de GNU (FDL v1.3)
    ├── GEMINI.md                                # Directivas de ingeniería, realismo técnico y reglas
    ├── GNUmakefile                              # Automatización para compilación, linting y dev server
+   ├── LICENSE                                  # Aviso oficial de licenciamiento GNU FDL
    ├── README.rst                               # Índice principal y documentación del repositorio
+   ├── requirements.txt                         # Dependencias mínimas de Python para CI y desarrollo
    └── source/                                  # Fuentes de Sphinx en reStructuredText
        ├── conf.py                              # Configuración de Sphinx en español con sphinx_rtd_theme
        ├── index.rst                            # Página principal y árbol de contenidos toctree
        ├── changelog.rst -> ../CHANGELOG.rst    # Enlace simbólico para incluir la bitácora en la guía
+       ├── contributing.rst -> ../CONTRIBUTING.rst # Enlace simbólico para directrices de contribución
        ├── 01-principios-y-filosofia.rst        # Tono, voz activa, pedagogía y accesibilidad
        ├── 02-arquitectura-modular.rst          # Taxonomía: concepto, procedimiento, referencia y ensamblaje
        ├── 03-procedimientos-y-verificacion.rst # Contrato de 5 bloques, verificación y prompts de superusuario
@@ -209,6 +218,11 @@ Repositorios y publicación
 * **Publicación en línea (GitHub Pages)**: https://nortk.github.io/estilo/
 * **Réplica en Codeberg**: https://codeberg.org/NorTK/estilo
 * **Réplica en GitLab**: https://gitlab.com/renich/estilo
+
+
+Contribuciones
+==============
+Para colaborar en el desarrollo y mantenimiento de la documentación técnica de NorTK, consulte el documento `CONTRIBUTING.rst <CONTRIBUTING.rst>`__, en el cual se especifican las directrices de redacción, validación estática obligatoria y el protocolo ineludible de registro en la Bitácora.
 
 
 Licencia
