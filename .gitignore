@@ -1,0 +1,12 @@
+# Sphinx build artifacts
+build/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Editor / OS temporaries
+*~
+*.swp
+*.swo
+.DS_Store

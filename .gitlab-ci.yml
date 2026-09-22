@@ -1,0 +1,34 @@
+# Pipeline de GitLab CI para validación y despliegue en GitLab Pages
+# Guía de Estilo de Documentación para NorTK
+
+image: python:3.12-slim
+
+stages:
+  - test
+  - deploy
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+
+lint:
+  stage: test
+  before_script:
+    - pip install --no-cache-dir rstcheck
+  script:
+    - rstcheck -r .
+
+pages:
+  stage: deploy
+  before_script:
+    - pip install --no-cache-dir sphinx sphinx-rtd-theme
+  script:
+    - sphinx-build -b dirhtml source public -W --keep-going
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

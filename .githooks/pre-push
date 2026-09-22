@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+# Pre-push git hook para la Guía de Estilo de Documentación para NorTK
+# Ejecuta rstcheck recursivo sobre todos los archivos RST del proyecto
+
+set -euo pipefail
+IFS=$'\n\t'
+
+echo "============================================================"
+echo "Verificando fuentes RST con rstcheck recursivo (pre-push)..."
+echo "============================================================"
+
+if ! command -v rstcheck &> /dev/null; then
+   echo "ERROR: 'rstcheck' no está instalado o no se encuentra en el PATH." >&2
+   echo "Instale python3-rstcheck antes de hacer push:" >&2
+   echo "  sudo dnf install -y python3-rstcheck" >&2
+   exit 1
+fi
+
+if ! rstcheck -r .; then
+   echo "" >&2
+   echo "============================================================" >&2
+   echo "ERROR: Falló la verificación de sintaxis con rstcheck." >&2
+   echo "Corrija los errores reportados o ejecute 'crstlint -fr .' para" >&2
+   echo "reparar problemas comunes de formato automáticamente." >&2
+   echo "============================================================" >&2
+   exit 1
+fi
+
+echo "Verificación rstcheck exitosa. Procediendo con el push."
+exit 0
