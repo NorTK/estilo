@@ -1,0 +1,5 @@
+# Dependencias de Python para compilar la Guía de Estilo de Documentación para NorTK
+sphinx>=8.0
+sphinx-rtd-theme>=3.0
+rstcheck>=6.0
+weasyprint>=62.0

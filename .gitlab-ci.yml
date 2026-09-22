@@ -24,7 +24,7 @@ lint:
 pages:
   stage: deploy
   before_script:
-    - pip install --no-cache-dir sphinx sphinx-rtd-theme
+    - pip install --no-cache-dir -r requirements.txt
   script:
     - sphinx-build -b dirhtml source public -W --keep-going
   artifacts:
