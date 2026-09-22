@@ -41,6 +41,7 @@ jobs:
       - name: Compilar documentación HTML
         run: |
           sphinx-build -b dirhtml source build/dirhtml -W --keep-going
+          touch build/dirhtml/.nojekyll
 
       - name: Subir artefacto de Pages
         uses: actions/upload-pages-artifact@v3

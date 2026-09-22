@@ -20,6 +20,7 @@ El formato se basa en `Keep a Changelog <https://keepachangelog.com/es-ES/1.1.0/
 * Optimización estructural de ``GEMINI.md`` para maximizar la densidad informativa, eliminar redundancias y consolidar directivas de calidad y estilo.
 * Corrección y ampliación del espaciado editorial en los títulos de grupo del menú lateral en ``source/_static/css/nortk.css`` para erradicar el amontonamiento sobre los enlaces subordinados.
 * Corrección del contraste tipográfico en encabezados de tabla (``thead th p``), asegurando texto blanco nítido sobre fondo oscuro.
+* Inclusión de directiva ``.nojekyll`` en el pipeline de GitHub Pages para blindar la entrega estática de recursos.
 * Actualización de ``README.rst`` incorporando la sección de contribuciones y reflejando los nuevos archivos del proyecto.
 
 
