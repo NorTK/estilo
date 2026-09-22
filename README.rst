@@ -146,7 +146,9 @@ Para compilar, validar y desarrollar la documentación localmente en Fedora Linu
 * **python3-sphinx-autobuild**: Servidor de desarrollo con recarga en vivo mediante WebSockets.
 * **python3-rstcheck**: Linter y analizador estático para fuentes reStructuredText.
 * **crstlint**: Herramienta de formateo y corrección automática de fuentes reStructuredText.
-* **weasyprint**: Motor de renderizado HTML/CSS a PDF para la generación de entregables imprimibles.
+* **latexmk**: Automatizador de compilación de documentos LaTeX para generación de PDF.
+* **texlive-latex**: Subsistema base de LaTeX para compilación de documentos imprimibles.
+* **texlive-collection-fontsrecommended**: Colección de fuentes recomendadas TeX Gyre para maquetación tipográfica formal.
 
 
 Instalación de dependencias
@@ -155,7 +157,7 @@ Como superusuario `root` o antecediendo `sudo`, instale las dependencias ejecuta
 
 .. code-block:: bash
 
-   # dnf install -y make python3-sphinx python3-sphinx_rtd_theme python3-sphinx-autobuild python3-rstcheck weasyprint
+   # dnf install -y make python3-sphinx python3-sphinx_rtd_theme python3-sphinx-autobuild python3-rstcheck latexmk texlive-latex texlive-collection-fontsrecommended
 
 
 Flujo de desarrollo local
@@ -203,7 +205,9 @@ El archivo `GNUmakefile` contiene los siguientes objetivos de automatización:
 * **make html**: Compila la documentación completa a HTML estándar en `build/html/`.
 * **make dirhtml**: Compila la documentación a formato de directorios con `index.html` en `build/dirhtml/`.
 * **make singlehtml**: Compila la totalidad de la guía en una sola página HTML en `build/singlehtml/`.
-* **make pdf**: Compila el documento monolítico e invoca `weasyprint` para producir el artefacto PDF formal en `build/nortk-guia-estilo-v0.1.0.pdf`.
+* **make latex**: Genera el código fuente LaTeX del manual en `build/latex/`.
+* **make latexpdf**: Compila el manual íntegro a PDF mediante Sphinx y `latexmk` en `build/latex/` y lo copia a `build/nortk-guia-estilo-v0.1.0.pdf`.
+* **make pdf**: Genera el documento PDF completo (alias directo de `make latexpdf`).
 * **make lint**: Ejecuta ``rstcheck -r .`` de forma recursiva sobre la totalidad de los archivos RST del proyecto.
 * **make fix**: Ejecuta ``crstlint -fr .`` para corregir de forma automática problemas comunes de formato.
 * **make hooks**: Configura el hook ``.githooks/pre-push`` en Git para impedir envíos remotos con errores.

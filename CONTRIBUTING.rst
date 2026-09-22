@@ -27,7 +27,7 @@ Para garantizar un entorno determinista, instale los paquetes requeridos mediant
 
 .. code-block:: bash
 
-   # dnf install -y make python3-sphinx python3-sphinx_rtd_theme python3-sphinx-autobuild python3-rstcheck weasyprint
+   # dnf install -y make python3-sphinx python3-sphinx_rtd_theme python3-sphinx-autobuild python3-rstcheck latexmk texlive-latex texlive-collection-fontsrecommended
 
 
 Flujo de desarrollo y verificación
@@ -57,11 +57,11 @@ Flujo de desarrollo y verificación
 
       $ make lint
 
-#. Genere el documento PDF para validar la maquetación imprimible:
+#. Genere el documento PDF completo mediante Sphinx para validar la maquetación imprimible:
 
    .. code-block:: bash
 
-      $ make pdf
+      $ make latexpdf
 
 
 Protocolo de control de cambios y confirmaciones

@@ -581,3 +581,213 @@ footer {
    background: #e2e8f0 !important;
    color: #0f172a !important;
 }
+
+/* ==========================================================================
+   Estilos de Impresión y Generación PDF (WeasyPrint/Paged Media)
+   ========================================================================== */
+
+@page {
+   size: letter;
+   margin: 22mm 18mm 22mm 18mm;
+
+   @top-left {
+      content: "NorTK · Guía de Estilo de Documentación";
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 8pt;
+      color: #64748b;
+   }
+
+   @top-right {
+      content: "v0.1.0";
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 8pt;
+      color: #64748b;
+   }
+
+   @bottom-left {
+      content: "https://nortk.org";
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 8pt;
+      color: #64748b;
+   }
+
+   @bottom-right {
+      content: "Página " counter(page) " de " counter(pages);
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 8pt;
+      font-weight: 600;
+      color: #0f172a;
+   }
+}
+
+@page :first {
+   margin-top: 25mm;
+   margin-bottom: 25mm;
+   @top-left { content: none; }
+   @top-right { content: none; }
+   @bottom-left { content: none; }
+   @bottom-right { content: none; }
+}
+
+@media print {
+   /* Desbloquear altura y posicionamiento para paginación continua */
+   html, body {
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      position: static !important;
+      background: #ffffff !important;
+      color: #1e293b !important;
+      font-size: 10.5pt !important;
+      line-height: 1.55 !important;
+   }
+
+   .wy-grid-for-nav {
+      position: static !important;
+      width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      display: block !important;
+      background: #ffffff !important;
+   }
+
+   /* Ocultar elementos de navegación en pantalla y barras laterales */
+   .wy-nav-side,
+   .wy-side-scroll,
+   .wy-nav-top,
+   .rst-versions,
+   .wy-breadcrumbs,
+   footer,
+   .rst-footer-buttons,
+   .rst-content .headerlink,
+   .wy-side-nav-search {
+      display: none !important;
+   }
+
+   .wy-nav-content-wrap {
+      margin: 0 !important;
+      position: static !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      padding: 0 !important;
+      background: #ffffff !important;
+      float: none !important;
+   }
+
+   .wy-nav-content {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      height: auto !important;
+      min-height: auto !important;
+      overflow: visible !important;
+      background: #ffffff !important;
+      float: none !important;
+   }
+
+   .rst-content {
+      width: 100% !important;
+      max-width: 100% !important;
+      float: none !important;
+   }
+
+   .rst-content p,
+   .rst-content > ul,
+   .rst-content > ol,
+   .rst-content .admonition p {
+      max-width: 100% !important;
+   }
+
+   /* Portada y título principal */
+   .rst-content > section > h1:first-child {
+      font-size: 26pt !important;
+      color: #0a0e17 !important;
+      border-bottom: 3px solid #0f172a !important;
+      padding-bottom: 12pt !important;
+      margin-top: 15pt !important;
+      margin-bottom: 16pt !important;
+   }
+
+   /* Salto de página antes de cada capítulo principal */
+   .toctree-wrapper.compound > section {
+      break-before: page !important;
+      page-break-before: always !important;
+      padding-top: 8pt !important;
+   }
+
+   /* Evitar que los títulos queden huérfanos al final de página */
+   h1, h2, h3, h4, h5, h6 {
+      break-after: avoid !important;
+      page-break-after: avoid !important;
+   }
+
+   /* Evitar cortes indeseados dentro de bloques de código, tablas y avisos */
+   .rst-content div[class^='highlight'],
+   .rst-content pre,
+   .rst-content table.docutils,
+   .rst-content .admonition,
+   .rst-content figure {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+   }
+
+   /* Ajuste de bloques de código para impresión */
+   .rst-content div[class^='highlight'] pre,
+   .rst-content .highlight pre {
+      background-color: #0f172a !important;
+      color: #f1f5f9 !important;
+      font-size: 8.5pt !important;
+      line-height: 1.45 !important;
+      padding: 8pt 10pt !important;
+      border: 1px solid #334155 !important;
+      white-space: pre-wrap !important;
+      word-break: break-all !important;
+   }
+
+   .rst-content code,
+   .rst-content tt.literal {
+      font-size: 8.5pt !important;
+      border: 1px solid #cbd5e1 !important;
+      background-color: #f8fafc !important;
+      color: #0f172a !important;
+   }
+
+   /* Ajuste de tablas para impresión */
+   .rst-content table.docutils {
+      font-size: 9pt !important;
+      margin-bottom: 14pt !important;
+   }
+
+   .rst-content table.docutils thead th {
+      background-color: #1e293b !important;
+      color: #ffffff !important;
+      font-size: 9pt !important;
+      padding: 6pt 8pt !important;
+   }
+
+   .rst-content table.docutils tbody td {
+      padding: 5pt 8pt !important;
+      font-size: 8.8pt !important;
+   }
+
+   /* Admoniciones en PDF */
+   .rst-content .admonition {
+      margin-bottom: 12pt !important;
+      font-size: 9.5pt !important;
+   }
+
+   .rst-content .admonition .admonition-title {
+      font-size: 9.5pt !important;
+      padding: 4pt 8pt !important;
+   }
+
+   .rst-content .admonition p {
+      padding: 0 8pt !important;
+      margin-bottom: 6pt !important;
+   }
+}

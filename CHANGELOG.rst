@@ -12,16 +12,21 @@ El formato se basa en `Keep a Changelog <https://keepachangelog.com/es-ES/1.1.0/
 
 .. rubric:: Agregado
 
+* Objetivos ``latex`` y ``latexpdf`` en ``GNUmakefile`` para la compilación formal del manual íntegro a PDF mediante Sphinx y ``latexmk``.
+* Configuración de ``latex_elements`` y ``latex_documents`` en ``source/conf.py`` con maquetación ``manual``, formato ``letterpaper`` y metadatos limpios.
+* Reglas de medios paginados ``@page`` y ``@media print`` en ``source/_static/css/nortk.css`` para impresión continua.
 * Documento canónico ``CONTRIBUTING.rst`` en la raíz del repositorio y enlace simbólico ``source/contributing.rst`` integrado en el árbol de navegación de Sphinx.
 * Regla formal de ciclo de vida en ``GEMINI.md`` que establece la obligatoriedad de registrar cada cambio en la Bitácora (``CHANGELOG.rst``) y evaluar de forma coordinada la actualización de ``README.rst`` y ``CONTRIBUTING.rst``.
 
 .. rubric:: Modificado
 
-* Optimización estructural de ``GEMINI.md`` para maximizar la densidad informativa, eliminar redundancias y consolidar directivas de calidad y estilo.
+* Reestructuración de secciones preliminares en ``source/index.rst`` utilizando directivas ``.. rubric::`` para que Introducción, Pilares fundamentales y Licencia no alteren la numeración canónica de los capítulos (1 al 7) en la tabla de contenidos y en el manual PDF.
+* Actualización de ``make pdf`` en ``GNUmakefile`` como alias directo de ``make latexpdf``, produciendo el manual íntegro de 39 páginas en ``build/nortk-guia-estilo-v0.1.0.pdf``.
+* Optimización estructural de ``GEMINI.md`` para maximizar la densidad informativa, eliminar redundancias y consolidar directivas de calidad, estilo y compilación PDF con LaTeX.
 * Corrección y ampliación del espaciado editorial en los títulos de grupo del menú lateral en ``source/_static/css/nortk.css`` para erradicar el amontonamiento sobre los enlaces subordinados.
 * Corrección del contraste tipográfico en encabezados de tabla (``thead th p``), asegurando texto blanco nítido sobre fondo oscuro.
 * Inclusión de directiva ``.nojekyll`` en el pipeline de GitHub Pages para blindar la entrega estática de recursos.
-* Actualización de ``README.rst`` incorporando la sección de contribuciones y reflejando los nuevos archivos del proyecto.
+* Actualización de ``README.rst`` y ``CONTRIBUTING.rst`` incorporando los requerimientos de TeX Live (``latexmk``, ``texlive-latex``, ``texlive-collection-fontsrecommended``) y el flujo de generación con ``make latexpdf``.
 
 
 [0.1.0] - 2026-09-21

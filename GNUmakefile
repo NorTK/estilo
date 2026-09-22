@@ -13,7 +13,7 @@ RSTCHECK      ?= rstcheck
 CRSTLINT      ?= crstlint
 WEASYPRINT    ?= weasyprint
 
-.PHONY: all html dirhtml singlehtml pdf linkcheck lint fix hooks dev clean help
+.PHONY: all html dirhtml singlehtml latex latexpdf pdf linkcheck lint fix hooks dev clean help
 
 all: html
 
@@ -35,10 +35,16 @@ dirhtml: | $(BUILDDIR)
 singlehtml: | $(BUILDDIR)
 	@$(SPHINXBUILD) -b singlehtml "$(SOURCEDIR)" "$(BUILDDIR)/singlehtml" $(SPHINXOPTS)
 
-pdf: singlehtml | $(BUILDDIR)
-	@echo "Generando documento PDF con weasyprint..."
-	@$(WEASYPRINT) "$(BUILDDIR)/singlehtml/index.html" "$(BUILDDIR)/nortk-guia-estilo-v0.1.0.pdf"
+latex: | $(BUILDDIR)
+	@$(SPHINXBUILD) -b latex "$(SOURCEDIR)" "$(BUILDDIR)/latex" $(SPHINXOPTS)
+
+latexpdf: | $(BUILDDIR)
+	@echo "Generando documento PDF completo con Sphinx (latexpdf)..."
+	@$(SPHINXBUILD) -M latexpdf "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	@cp -f "$(BUILDDIR)/latex/nortk-guia-estilo-v0.1.0.pdf" "$(BUILDDIR)/nortk-guia-estilo-v0.1.0.pdf"
 	@echo "Documento PDF generado exitosamente en $(BUILDDIR)/nortk-guia-estilo-v0.1.0.pdf"
+
+pdf: latexpdf
 
 linkcheck: | $(BUILDDIR)
 	@$(SPHINXBUILD) -b linkcheck "$(SOURCEDIR)" "$(BUILDDIR)/linkcheck" $(SPHINXOPTS)

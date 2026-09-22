@@ -127,7 +127,7 @@ Todo módulo de procedimiento debe cumplir obligatoriamente con la siguiente est
 
 * **Compilación estricta y generación de entregables**:
   * Compilación estricta con `SPHINXOPTS ?= -W --keep-going`, convirtiendo cualquier advertencia en error fatal.
-  * Generación de PDF formal con `make pdf` utilizando `weasyprint`.
+  * Generación de PDF formal con `make latexpdf` (o `make pdf`) utilizando el constructor LaTeX de Sphinx y `latexmk`, produciendo el manual íntegro.
   * Servidor interactivo con recarga en vivo mediante `make dev` en `http://127.0.0.1:8000/`.
 
 * **Memoria del proyecto**:

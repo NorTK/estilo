@@ -52,3 +52,23 @@ html_theme_options = {
 
 html_show_sourcelink = False
 html_copy_source = False
+
+# -- Options for LaTeX output ------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-latex-output
+
+latex_elements = {
+    'papersize': 'letterpaper',
+    'pointsize': '10pt',
+    'fncychap': r'\usepackage[Sonny]{fncychap}',
+}
+
+latex_documents = [
+    (
+        'index',
+        'nortk-guia-estilo-v0.1.0.tex',
+        'Guía de Estilo de Documentación para NorTK',
+        'NorTK',
+        'manual',
+    ),
+]
+
